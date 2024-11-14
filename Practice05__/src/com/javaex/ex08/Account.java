@@ -1,52 +1,46 @@
 package com.javaex.ex08;
 
 public class Account {
+    private String accountNo;  // 계좌 번호
+    private int deposit;       // 예금액
+    private int withdraw;      // 출금액
 
-    private String accountNo;
-    private int balance;
-    
-    private int deposit;
-    private int withdraw;
-    private int showBalance;
-    
-    //생성자 작성
-    public Account(String string) {}
-    
-    //필요한 메소드 작성
-    public String getAccountNo() {
-    	return accountNo;
+    public Account(String accountNo) {
+        this.accountNo = accountNo;
+        this.deposit = 0;      // 기본 예금액은 0
+        this.withdraw = 0;     // 기본 출금액은 0
     }
-    public void setAccountNo(String accountNo) {
-    	this.accountNo = accountNo;
-    }
-    
-    public int getBalance() {
-    	return balance;
-    }
-    public void setBalance(int balance) {
-    	this.balance = balance;
-    }
-    
-    public int getDeposit() {
-    	return deposit;
-    }
+
+    // 예금액 설정
     public void setDeposit(int deposit) {
-    	this.deposit = deposit;
+        this.deposit = deposit;
     }
-    
-    public int getWithdraw() {
-    	return withdraw;
+
+    public int getDeposit() {
+        return deposit;
     }
+
+    // 출금액 설정
     public void setWithdraw(int withdraw) {
-    	this.withdraw = withdraw;
+        this.withdraw = withdraw;
     }
-    
-    public int getShowBalance() {
-    	return showBalance;
+
+    public int getWithdraw() {
+        return withdraw;
     }
-    public void setShowBalance(int showBalance) {
-    	this.showBalance = showBalance;
+
+    // 잔고 계산 (예금액 - 출금액)
+    public void setShowBalance(int balance) {
+        this.deposit = balance;
     }
-    
-    
+
+    public int getBalance() {
+        return deposit - withdraw;
+    }
+
+    // toString() 메서드 오버라이드
+    @Override
+    public String toString() {
+        return accountNo;
+    }
 }
